@@ -62,7 +62,7 @@ public class firsthardware
     public DcMotor  rightDrive  = null;
     public DcMotor  leftArm     = null;
     public Servo    leftClaw    = null;
-    public Servo    rightClaw   = null;
+    public Servo    myServo   = null;
 
     public static final double MID_SERVO       =  0.5 ;
     public static final double ARM_UP_POWER    =  0.45 ;
@@ -84,20 +84,21 @@ public class firsthardware
 
         // Define and Initialize Motors
         drivemotor  = hwMap.get(DcMotor.class, "drivemotor");
-        drivemotor2  = hwMap.get(DcMotor.class, "drivemotor2");
+        /*drivemotor2  = hwMap.get(DcMotor.class, "drivemotor2");
         drivemotor3  = hwMap.get(DcMotor.class, "drivemotor3");
         drivemotor4  = hwMap.get(DcMotor.class, "drivemotor4");
         drivemotor5  = hwMap.get(DcMotor.class, "drivemotor5");
-        drivemotor6  = hwMap.get(DcMotor.class, "drivemotor6");
+        drivemotor6  = hwMap.get(DcMotor.class, "drivemotor6");*/
+        //myServo = hwMap.get(Servo.class, "myServo");
 
 
         // Set all motors to zero power
         drivemotor.setPower(0);
-        drivemotor2.setPower(0);
+        /*drivemotor2.setPower(0);
         drivemotor3.setPower(0);
         drivemotor4.setPower(0);
         drivemotor5.setPower(0);
-        drivemotor6.setPower(0);
+        drivemotor6.setPower(0);*/
 
 
         // Set all motors to run without encoders.
