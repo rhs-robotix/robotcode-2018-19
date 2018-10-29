@@ -93,7 +93,8 @@ public class firstprogram extends OpMode{
     @Override
     public void loop(){
     robot.drivemotor.setPower(gamepad1.right_stick_y / 2 + gamepad2.right_stick_y / 2);
-
+        telemetry.addData("Status", robot.drivemotor.getCurrentPosition());
+        telemetry.update();
 
 
     }

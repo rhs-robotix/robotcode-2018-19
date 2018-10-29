@@ -103,7 +103,7 @@ public class firsthardware
 
         // Set all motors to run without encoders.
         // May want to use RUN_USING_ENCODERS if encoders are installed.
-        drivemotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        drivemotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
 
 
 
