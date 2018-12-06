@@ -53,15 +53,11 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 public class firsthardware
 {
     /* Public OpMode members. */
-    public DcMotor  drivemotor   = null;
-    public DcMotor  drivemotor2   = null;
-    public DcMotor  drivemotor3   = null;
-    public DcMotor  drivemotor4  = null;
-    public DcMotor  drivemotor5  = null;
-    public DcMotor  drivemotor6   = null;
-    public DcMotor  rightDrive  = null;
-    public DcMotor  leftArm     = null;
-    public Servo    leftClaw    = null;
+    public DcMotor  frontLeftMotor   = null;
+    public DcMotor  frontRightMotor   = null;
+    public DcMotor  backLeftMotor   = null;
+    public DcMotor  backRightMotor  = null;
+
     public Servo    myServo   = null;
 
     public static final double MID_SERVO       =  0.5 ;
@@ -83,30 +79,28 @@ public class firsthardware
         hwMap = ahwMap;
 
         // Define and Initialize Motors
-        drivemotor  = hwMap.get(DcMotor.class, "drivemotor");
-        /*drivemotor2  = hwMap.get(DcMotor.class, "drivemotor2");
-        drivemotor3  = hwMap.get(DcMotor.class, "drivemotor3");
-        drivemotor4  = hwMap.get(DcMotor.class, "drivemotor4");
-        drivemotor5  = hwMap.get(DcMotor.class, "drivemotor5");
-        drivemotor6  = hwMap.get(DcMotor.class, "drivemotor6");*/
-        //myServo = hwMap.get(Servo.class, "myServo");
+        frontRightMotor  = hwMap.get(DcMotor.class, "frontRightMotor");
+        frontLeftMotor  = hwMap.get(DcMotor.class, "frontLeftMotor");
+        backLeftMotor  = hwMap.get(DcMotor.class, "backLeftMotor");
+        backRightMotor  = hwMap.get(DcMotor.class, "backRightMotor");
+
+        myServo = hwMap.get(Servo.class, "myServo");
 
 
         // Set all motors to zero power
-        drivemotor.setPower(0);
-        /*drivemotor2.setPower(0);
-        drivemotor3.setPower(0);
-        drivemotor4.setPower(0);
-        drivemotor5.setPower(0);
-        drivemotor6.setPower(0);*/
+        frontRightMotor.setPower(0);
+        frontLeftMotor.setPower(0);
+        backLeftMotor.setPower(0);
+        backRightMotor.setPower(0);
+
 
 
         // Set all motors to run without encoders.
         // May want to use RUN_USING_ENCODERS if encoders are installed.
-        drivemotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-
-
-
+        frontRightMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        frontLeftMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        backRightMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        backLeftMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
     }
  }
 

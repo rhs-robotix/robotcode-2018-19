@@ -29,6 +29,7 @@
 
 package org.firstinspires.ftc.teamcode;
 
+import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
@@ -92,9 +93,13 @@ public class firstprogram extends OpMode{
      */
     @Override
     public void loop(){
-    robot.drivemotor.setPower(gamepad1.right_stick_y / 2 + gamepad2.right_stick_y / 2);
-        telemetry.addData("Status", robot.drivemotor.getCurrentPosition());
-        telemetry.update();
+        robot.frontRightMotor.setPower(gamepad1.left_stick_y);
+        robot.frontLeftMotor.setPower(gamepad1.left_stick_y);
+        robot.backLeftMotor.setPower(gamepad1.right_stick_y);
+        robot.backRightMotor.setPower(gamepad1.right_stick_y);
+
+
+
 
 
     }
