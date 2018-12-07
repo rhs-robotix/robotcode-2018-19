@@ -97,10 +97,13 @@ public class firstprogram extends OpMode{
         robot.frontLeftMotor.setPower(gamepad1.left_stick_y);
         robot.backLeftMotor.setPower(gamepad1.right_stick_y);
         robot.backRightMotor.setPower(gamepad1.right_stick_y);
-
-
-
-
+        leftArmMotor.setPower(0);
+        rightArmMotor.setPower(0);
+        leftSpoolMotor.setPower(0);
+        rightSpoolMotor.setPower(0);
+        upperArmMotor.setPower(0);
+        collectionMotor1.setPower(0);
+        collectionMotor2.setPower(0);
 
     }
 
