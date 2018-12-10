@@ -54,6 +54,7 @@ import com.qualcomm.robotcore.util.Range;
 //@Disabled
 public class firstprogram extends OpMode{
 
+
     /* Declare OpMode members. */
     firsthardware robot       = new firsthardware(); // use the class created to define a Pushbot's hardware
                                                          // could also use HardwarePushbotMatrix class.
@@ -97,13 +98,13 @@ public class firstprogram extends OpMode{
         robot.frontLeftMotor.setPower(gamepad1.left_stick_y);
         robot.backLeftMotor.setPower(gamepad1.right_stick_y);
         robot.backRightMotor.setPower(gamepad1.right_stick_y);
-        leftArmMotor.setPower(0);
-        rightArmMotor.setPower(0);
-        leftSpoolMotor.setPower(0);
-        rightSpoolMotor.setPower(0);
-        upperArmMotor.setPower(0);
-        collectionMotor1.setPower(0);
-        collectionMotor2.setPower(0);
+        robot.leftArmMotor.setPower(0);
+        robot.rightArmMotor.setPower(0);
+        robot.leftSpoolMotor.setPower(0);
+        robot.rightSpoolMotor.setPower(0);
+        robot.upperArmMotor.setPower(0);
+        robot.collectionMotor1.setPower(0);
+        robot.collectionMotor2.setPower(0);
 
     }
 
