@@ -57,13 +57,13 @@ public class firsthardware
     public DcMotor  frontRightMotor   = null;
     public DcMotor  backLeftMotor   = null;
     public DcMotor  backRightMotor  = null;
-    public DcMotor  leftArmMotor   = null;
-    public DcMotor  rightArmMotor  = null;
+    public DcMotor  armMotor   = null;
+
     public DcMotor  leftSpoolMotor   = null;
     public DcMotor  rightSpoolMotor  = null;
-    public DcMotor  upperArmMotor   = null;
+  /*  public DcMotor  upperArmMotor   = null;
     public DcMotor  collectionMotor1   = null;
-    public DcMotor  collectionMotor2   = null;
+    public DcMotor  collectionMotor2   = null; */
 
 
     public static final double MID_SERVO       =  0.5 ;
@@ -89,13 +89,13 @@ public class firsthardware
         frontLeftMotor  = hwMap.get(DcMotor.class, "frontLeftMotor");
         backLeftMotor  = hwMap.get(DcMotor.class, "backLeftMotor");
         backRightMotor  = hwMap.get(DcMotor.class, "backRightMotor");
-        leftArmMotor  = hwMap.get(DcMotor.class, "leftArmMotor");
-        rightArmMotor  = hwMap.get(DcMotor.class, "rightArmMotor");
+        armMotor  = hwMap.get(DcMotor.class, "leftArmMotor");
+
         leftSpoolMotor  = hwMap.get(DcMotor.class, "leftSpoolMotor");
         rightSpoolMotor  = hwMap.get(DcMotor.class, "rightSpoolMotor");
-        upperArmMotor  = hwMap.get(DcMotor.class, "upperArmMotor");
+     /*   upperArmMotor  = hwMap.get(DcMotor.class, "upperArmMotor");
         collectionMotor1  = hwMap.get(DcMotor.class, "collectionMotor1");
-        collectionMotor2  = hwMap.get(DcMotor.class, "collectionMotor2");
+        collectionMotor2  = hwMap.get(DcMotor.class, "collectionMotor2"); */
 
 
 
@@ -104,13 +104,13 @@ public class firsthardware
         frontLeftMotor.setPower(0);
         backLeftMotor.setPower(0);
         backRightMotor.setPower(0);
-        leftArmMotor.setPower(0);
-        rightArmMotor.setPower(0);
+        armMotor.setPower(0);
+
         leftSpoolMotor.setPower(0);
         rightSpoolMotor.setPower(0);
-        upperArmMotor.setPower(0);
+        /* upperArmMotor.setPower(0);
         collectionMotor1.setPower(0);
-        collectionMotor2.setPower(0);
+        collectionMotor2.setPower(0); */
 
 
         // Set all motors to run without encoders.
@@ -119,13 +119,13 @@ public class firsthardware
         frontLeftMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         backRightMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         backLeftMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-        leftArmMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-        rightArmMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        armMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+
         leftSpoolMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         rightSpoolMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-        upperArmMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+       /* upperArmMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         collectionMotor1.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-        collectionMotor2.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        collectionMotor2.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER); */
     }
  }
 

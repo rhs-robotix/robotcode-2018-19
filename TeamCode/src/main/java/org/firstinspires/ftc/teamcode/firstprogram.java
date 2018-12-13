@@ -95,17 +95,24 @@ public class firstprogram extends OpMode{
     @Override
     public void loop(){
         robot.frontRightMotor.setPower(gamepad1.right_stick_y);
-        robot.frontLeftMotor.setPower(gamepad1.left_stick_y);
+        robot.frontLeftMotor.setPower(gamepad1.right_stick_y);
         robot.backLeftMotor.setPower(gamepad1.left_stick_y);
-        robot.backRightMotor.setPower(gamepad1.right_stick_y);
-        robot.leftArmMotor.setPower(gamepad2.left_stick_y);
-        robot.rightArmMotor.setPower(gamepad2.left_stick_y);
+        robot.backRightMotor.setPower(gamepad1.left_stick_y);
+        while(gamepad2.left_stick_y < 0) {
+            if (gamepad2.left_stick_y < .5) {
+                float volts = gamepad2.left_stick_y;
+                robot.armMotor.setPower(volts);
+            } else {
+                robot.armMotor.setPower(gamepad2.left_stick_y);
+
+                }
+        }
         robot.leftSpoolMotor.setPower(0);
         robot.rightSpoolMotor.setPower(0);
-        robot.upperArmMotor.setPower(0);
+       /* robot.upperArmMotor.setPower(0);
         robot.collectionMotor1.setPower(0);
         robot.collectionMotor2.setPower(0);
-
+        */
     }
 
     /*
