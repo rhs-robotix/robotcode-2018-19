@@ -59,8 +59,8 @@ public class firsthardware
     public DcMotor  backRightMotor  = null;
     public DcMotor  armMotor   = null;
 
-    public DcMotor  leftSpoolMotor   = null;
-    public DcMotor  rightSpoolMotor  = null;
+    public DcMotor  spoolMotor   = null;
+
   /*  public DcMotor  upperArmMotor   = null;
     public DcMotor  collectionMotor1   = null;
     public DcMotor  collectionMotor2   = null; */
@@ -89,10 +89,10 @@ public class firsthardware
         frontLeftMotor  = hwMap.get(DcMotor.class, "frontLeftMotor");
         backLeftMotor  = hwMap.get(DcMotor.class, "backLeftMotor");
         backRightMotor  = hwMap.get(DcMotor.class, "backRightMotor");
-        armMotor  = hwMap.get(DcMotor.class, "leftArmMotor");
+        armMotor  = hwMap.get(DcMotor.class, "armMotor");
 
-        leftSpoolMotor  = hwMap.get(DcMotor.class, "leftSpoolMotor");
-        rightSpoolMotor  = hwMap.get(DcMotor.class, "rightSpoolMotor");
+        spoolMotor  = hwMap.get(DcMotor.class, "spoolMotor");
+
      /*   upperArmMotor  = hwMap.get(DcMotor.class, "upperArmMotor");
         collectionMotor1  = hwMap.get(DcMotor.class, "collectionMotor1");
         collectionMotor2  = hwMap.get(DcMotor.class, "collectionMotor2"); */
@@ -106,8 +106,8 @@ public class firsthardware
         backRightMotor.setPower(0);
         armMotor.setPower(0);
 
-        leftSpoolMotor.setPower(0);
-        rightSpoolMotor.setPower(0);
+        spoolMotor.setPower(0);
+
         /* upperArmMotor.setPower(0);
         collectionMotor1.setPower(0);
         collectionMotor2.setPower(0); */
@@ -121,8 +121,8 @@ public class firsthardware
         backLeftMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         armMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
-        leftSpoolMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-        rightSpoolMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        spoolMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+
        /* upperArmMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         collectionMotor1.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         collectionMotor2.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER); */

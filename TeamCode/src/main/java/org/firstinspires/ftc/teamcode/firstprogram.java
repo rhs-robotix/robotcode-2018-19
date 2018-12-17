@@ -52,14 +52,14 @@ import com.qualcomm.robotcore.util.Range;
 
 @TeleOp(name="pushbot: Teleop Tank", group="Pushbot")
 //@Disabled
-public class firstprogram extends OpMode{
+public class firstprogram extends OpMode {
 
 
     /* Declare OpMode members. */
-    firsthardware robot       = new firsthardware(); // use the class created to define a Pushbot's hardware
-                                                         // could also use HardwarePushbotMatrix class.
-    double          clawOffset  = 0.0 ;                  // Servo mid position
-    final double    CLAW_SPEED  = 0.02 ;                 // sets rate to move servo
+    firsthardware robot = new firsthardware(); // use the class created to define a Pushbot's hardware
+    // could also use HardwarePushbotMatrix class.
+    double clawOffset = 0.0;                  // Servo mid position
+    final double CLAW_SPEED = 0.02;                 // sets rate to move servo
 
     /*
      * Code to run ONCE when the driver hits INIT
@@ -93,27 +93,28 @@ public class firstprogram extends OpMode{
      * Code to run REPEATEDLY after the driver hits PLAY but before they hit STOP
      */
     @Override
-    public void loop(){
-        robot.frontRightMotor.setPower(gamepad1.right_stick_y);
-        robot.frontLeftMotor.setPower(gamepad1.right_stick_y);
-        robot.backLeftMotor.setPower(gamepad1.left_stick_y);
-        robot.backRightMotor.setPower(gamepad1.left_stick_y);
-        while(gamepad2.left_stick_y < 0) {
-            if (gamepad2.left_stick_y < .5) {
-                float volts = gamepad2.left_stick_y;
-                robot.armMotor.setPower(volts);
-            } else {
-                robot.armMotor.setPower(gamepad2.left_stick_y);
+    public void loop() {
+        robot.frontRightMotor.setPower(gamepad1.left_stick_y);
+        robot.frontLeftMotor.setPower(-gamepad1.left_stick_y);
+        robot.backLeftMotor.setPower(-gamepad1.right_stick_y);
+        robot.backRightMotor.setPower(gamepad1.right_stick_y);
+        robot.spoolMotor.setPower(gamepad2.right_stick_y);
+        //  while(gamepad2.left_stick_y < 0) {
+        //  if (gamepad2.left_stick_y < .5) {
+        //    float volts = gamepad2.left_stick_y;
+        //  robot.armMotor.setPower(volts);
+        // } else {
+        robot.armMotor.setPower(gamepad2.left_stick_y);
 
-                }
-        }
-        robot.leftSpoolMotor.setPower(0);
-        robot.rightSpoolMotor.setPower(0);
+        //  }
+    }
+
+
        /* robot.upperArmMotor.setPower(0);
         robot.collectionMotor1.setPower(0);
         robot.collectionMotor2.setPower(0);
         */
-    }
+
 
     /*
      * Code to run ONCE after the driver hits STOP
