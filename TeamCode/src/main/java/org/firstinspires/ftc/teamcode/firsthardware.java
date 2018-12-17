@@ -61,9 +61,9 @@ public class firsthardware
 
     public DcMotor  spoolMotor   = null;
 
-  /*  public DcMotor  upperArmMotor   = null;
-    public DcMotor  collectionMotor1   = null;
-    public DcMotor  collectionMotor2   = null; */
+  // public DcMotor  upperArmMotor   = null;
+   // public DcMotor  collectionMotor   = null;
+
 
 
     public static final double MID_SERVO       =  0.5 ;
@@ -93,9 +93,9 @@ public class firsthardware
 
         spoolMotor  = hwMap.get(DcMotor.class, "spoolMotor");
 
-     /*   upperArmMotor  = hwMap.get(DcMotor.class, "upperArmMotor");
-        collectionMotor1  = hwMap.get(DcMotor.class, "collectionMotor1");
-        collectionMotor2  = hwMap.get(DcMotor.class, "collectionMotor2"); */
+     //   upperArmMotor  = hwMap.get(DcMotor.class, "upperArmMotor");
+       // collectionMotor  = hwMap.get(DcMotor.class, "collectionMotor");
+
 
 
 
@@ -108,9 +108,9 @@ public class firsthardware
 
         spoolMotor.setPower(0);
 
-        /* upperArmMotor.setPower(0);
-        collectionMotor1.setPower(0);
-        collectionMotor2.setPower(0); */
+        // upperArmMotor.setPower(0);
+       // collectionMotor.setPower(0);
+
 
 
         // Set all motors to run without encoders.
@@ -123,9 +123,9 @@ public class firsthardware
 
         spoolMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
-       /* upperArmMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-        collectionMotor1.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-        collectionMotor2.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER); */
+       // upperArmMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+      //  collectionMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+
     }
  }
 

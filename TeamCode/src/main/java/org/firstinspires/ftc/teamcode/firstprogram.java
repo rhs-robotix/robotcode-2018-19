@@ -103,17 +103,26 @@ public class firstprogram extends OpMode {
         //  if (gamepad2.left_stick_y < .5) {
         //    float volts = gamepad2.left_stick_y;
         //  robot.armMotor.setPower(volts);
-        // } else {
-        robot.armMotor.setPower(gamepad2.left_stick_y);
-
+        // } else
         //  }
+        robot.armMotor.setPower(gamepad2.left_stick_y);
+       /* if (gamepad2.a) {
+            robot.collectionMotor.setPower(1);
+
+        }
+        else if (gamepad2.b){
+            robot.collectionMotor.setPower(-1);
+        }
+        else {
+            robot.collectionMotor.setPower(0);
+
+        } */
     }
 
 
-       /* robot.upperArmMotor.setPower(0);
-        robot.collectionMotor1.setPower(0);
-        robot.collectionMotor2.setPower(0);
-        */
+       // robot.upperArmMotor.setPower(0);
+
+
 
 
     /*
