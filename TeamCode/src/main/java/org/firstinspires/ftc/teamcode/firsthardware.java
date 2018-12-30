@@ -58,7 +58,7 @@ public class firsthardware
     public DcMotor  backLeftMotor   = null;
     public DcMotor  backRightMotor  = null;
     public DcMotor  armMotor   = null;
-
+    public Servo servoTest = null;
     public DcMotor  spoolMotor   = null;
 
   // public DcMotor  upperArmMotor   = null;
@@ -90,7 +90,7 @@ public class firsthardware
         backLeftMotor  = hwMap.get(DcMotor.class, "backLeftMotor");
         backRightMotor  = hwMap.get(DcMotor.class, "backRightMotor");
         armMotor  = hwMap.get(DcMotor.class, "armMotor");
-
+        servoTest = hwMap.get(Servo.class, "servoTest");
         spoolMotor  = hwMap.get(DcMotor.class, "spoolMotor");
 
      //   upperArmMotor  = hwMap.get(DcMotor.class, "upperArmMotor");
@@ -105,7 +105,7 @@ public class firsthardware
         backLeftMotor.setPower(0);
         backRightMotor.setPower(0);
         armMotor.setPower(0);
-
+        servoTest.setPosition(.5);
         spoolMotor.setPower(0);
 
         // upperArmMotor.setPower(0);
