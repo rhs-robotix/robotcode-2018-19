@@ -51,7 +51,7 @@ import com.qualcomm.robotcore.util.Range;
  */
 
 @TeleOp(name="pushbot: Teleop Tank", group="Pushbot")
-//@Disabled
+@Disabled
 public class firstprogram extends OpMode {
 
 
