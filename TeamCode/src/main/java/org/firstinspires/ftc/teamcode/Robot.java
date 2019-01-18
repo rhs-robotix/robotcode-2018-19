@@ -12,6 +12,11 @@ public class Robot {
     public CRServo c_Servo1 = null;
     public CRServo c_Servo2 = null;
 
+    public DcMotor leftDriveMotor = null;
+    public DcMotor rightDriveMotor = null;
+    public DcMotor armMotor = null;
+    public DcMotor upperArmMotor = null;
+    public DcMotor spoolMotor = null;
 
     // map all servos and motors
     HardwareMap hwMap = null;
@@ -24,6 +29,11 @@ public class Robot {
         c_Servo1 = getCRServo("c_Servo1");
         c_Servo2 = getCRServo("c_Servo2");
 
+        leftDriveMotor = getMotor("leftDriveMotor");
+        rightDriveMotor = getMotor("rightDriveMotor");
+        armMotor = getMotor("armMotor");
+        upperArmMotor = getMotor("upperArmMotor");
+        spoolMotor = getMotor("spoolMotor");
     }
 
 
