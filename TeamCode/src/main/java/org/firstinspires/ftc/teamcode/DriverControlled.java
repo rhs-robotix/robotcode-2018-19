@@ -101,11 +101,8 @@ public class DriverControlled extends OpMode {
 
 
         // collection system
-        /*
-        double collectionPower = gamepad2.left_stick_y;
-
-        robot.c_Servo1.setPower(collectionPower);
-        robot.c_Servo2.setPower(-collectionPower); */
+        robot.c_Servo1.setPower(gamepad2.right_trigger - gamepad2.left_trigger);
+        robot.c_Servo2.setPower(gamepad2.left_trigger - gamepad2.right_trigger);
 
 
 
@@ -114,7 +111,7 @@ public class DriverControlled extends OpMode {
         double rightPower = gamepad1.right_stick_y;
 
         robot.leftDriveMotor.setPower(leftPower);
-        robot.rightDriveMotor.setPower(rightPower);
+        robot.rightDriveMotor.setPower(-rightPower);
 
 
 
@@ -123,7 +120,7 @@ public class DriverControlled extends OpMode {
 
 
         // spool left stick
-        robot.armMotor.setPower(gamepad2.left_stick_y);
+        //robot.armMotor.setPower(gamepad2.left_stick_y);
 
         // arm right stick
         robot.armMotor.setPower(gamepad2.right_stick_y);
@@ -132,13 +129,14 @@ public class DriverControlled extends OpMode {
         robot.upperArmMotor.setPower(gamepad2.right_stick_x);
 
         // collection dpad
+        /*
         if (gamepad2.dpad_down) {
             robot.c_Servo1.setPower(-1);
             robot.c_Servo2.setPower(1);
         } else if (gamepad2.dpad_up) {
             robot.c_Servo1.setPower(1);
             robot.c_Servo2.setPower(-1);
-        }
+        } */
 
     }
 
