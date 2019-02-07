@@ -22,13 +22,11 @@ public class DriverControlled extends OpMode {
         telemetry.addData("Status", "Ready");
 
         // set all motors to 0
-        robot.leftDriveMotor.setPower(0);
-        robot.rightDriveMotor.setPower(0);
-        robot.spoolMotor.setPower(0);
-        robot.upperArmMotor.setPower(0);
+        robot.dFront.setPower(0);
+        robot.dBack.setPower(0);
+        robot.dLeft.setPower(0);
+        robot.dRight.setPower(0);
         robot.armMotor.setPower(0);
-        robot.c_Servo1.setPower(0);
-        robot.c_Servo2.setPower(0);
 
     }
 
@@ -42,102 +40,19 @@ public class DriverControlled extends OpMode {
     @Override
     public void loop() {
 
-        // double speed = gamepad1.left_stick_y;
+        // drive velocities
+        double velocityX = gamepad1.left_stick_x;
+        double velocityY = gamepad1.left_stick_y;
 
-        /*
-        //Collection System
+        // turning
+        double velocityTurn = gamepad1.right_stick_x;
 
-        //collection servos collect
-        if (gamepad2.right_trigger == 1) {
-            robot.c_Servo2.setPower(-1);
-            robot.c_Servo1.setPower(1);
-        }
-        //collection motors dispense
-        else if (gamepad2.left_trigger == 1) {
-            robot.c_Servo2.setPower(1);
-            robot.c_Servo1.setPower(-1);
-        } else {
-            robot.c_Servo2.setPower(0);
-            robot.c_Servo1.setPower(0);
-        }
-
-
-        //Arm Movement
-        //robot.armMotor.setPower(gamepad2.left_stick_y);
-        //robot.upperArmMotor.setPower(gamepad2.right_stick_y);
-
-
-        //Spool Motor
-       // robot.spoolMotor.setPower(gamepad2.left_stick_y);
-
-        //Driving
-
-        //move forward
-        if (gamepad1.left_stick_y == -1) {
-            robot.leftDriveMotor.setPower(1);
-            robot.rightDriveMotor.setPower(1);
-        }
-        //move backwards
-        else if (gamepad1.left_stick_y == 1) {
-            robot.leftDriveMotor.setPower(-1);
-            robot.rightDriveMotor.setPower(-1);
-        }
-        //turns right
-        else if (gamepad1.left_stick_x == 1) {
-            robot.rightDriveMotor.setPower(-1);
-            robot.leftDriveMotor.setPower(1);
-        }
-        //turns left
-        else if (gamepad1.left_stick_x == -1) {
-            robot.rightDriveMotor.setPower(1);
-            robot.leftDriveMotor.setPower(-1);
-
-        } else {
-            robot.rightDriveMotor.setPower(0);
-            robot.leftDriveMotor.setPower(0);
-        }p
-        */
-
-
-
-        // collection system
-        robot.c_Servo1.setPower(gamepad2.right_trigger - gamepad2.left_trigger);
-        robot.c_Servo2.setPower(gamepad2.left_trigger - gamepad2.right_trigger);
-
-
-
-        // drive motors
-        double leftPower = gamepad1.left_stick_y;
-        double rightPower = gamepad1.right_stick_y;
-
-        robot.leftDriveMotor.setPower(leftPower);
-        robot.rightDriveMotor.setPower(-rightPower);
-
-
-
-        // arm motors
-        robot.armMotor.setPower(gamepad2.right_stick_y);
-
-
-        // spool left stick
-        //robot.armMotor.setPower(gamepad2.left_stick_y);
-
-        // arm right stick
-        robot.armMotor.setPower(gamepad2.right_stick_y);
-
-        // upperArm right stick x
-        robot.upperArmMotor.setPower(gamepad2.right_stick_x);
-
-        // collection dpad
-        /*
-        if (gamepad2.dpad_down) {
-            robot.c_Servo1.setPower(-1);
-            robot.c_Servo2.setPower(1);
-        } else if (gamepad2.dpad_up) {
-            robot.c_Servo1.setPower(1);
-            robot.c_Servo2.setPower(-1);
-        } */
-
+        // set motor powers
+        robot.dFront.setPower(-velocityX - velocityTurn);
+        robot.dBack.setPower(velocityX - velocityTurn);
+        robot.dLeft.setPower(velocityY - velocityTurn);
+        robot.dRight.setPower(-velocityY - velocityTurn);
+        robot.armMotor.setPower(gamepad2.left_stick_y);
     }
 
     // code runs when driver hits STOP
@@ -145,13 +60,11 @@ public class DriverControlled extends OpMode {
     public void stop() {
 
         // set all motors to 0
-        robot.leftDriveMotor.setPower(0);
-        robot.rightDriveMotor.setPower(0);
-        robot.spoolMotor.setPower(0);
-        robot.upperArmMotor.setPower(0);
+        robot.dFront.setPower(0);
+        robot.dBack.setPower(0);
+        robot.dLeft.setPower(0);
+        robot.dRight.setPower(0);
         robot.armMotor.setPower(0);
-        robot.c_Servo1.setPower(0);
-        robot.c_Servo2.setPower(0);
 
     }
 

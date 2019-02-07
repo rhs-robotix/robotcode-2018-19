@@ -4,6 +4,7 @@ import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.util.ElapsedTime;
+import com.vuforia.CameraDevice;
 
 import org.firstinspires.ftc.robotcore.external.ClassFactory;
 import org.firstinspires.ftc.robotcore.external.navigation.VuforiaLocalizer;
@@ -39,10 +40,10 @@ public class AutonomousTesting extends LinearOpMode {
         // initialize object detection and wait for start
         initVuforia();
         initTfod();
+        CameraDevice.getInstance().setFlashTorchMode(true);
         waitForStart();
 
         // run object detection for 5 seconds
-        double odTime = 0.0;
         String goldLocation = "idk";
         if (opModeIsActive()) {
             /** Activate Tensor Flow Object Detection. */
@@ -50,7 +51,8 @@ public class AutonomousTesting extends LinearOpMode {
                 tfod.activate();
             }
 
-            while (runtime.seconds() < 5) {
+            runtime.reset();
+            while (runtime.seconds() < 5 && goldLocation.equals("idk")) {
                 if (tfod != null) {
                     // getUpdatedRecognitions() will return null if no new information is available since
                     // the last time that call was made.
@@ -87,31 +89,38 @@ public class AutonomousTesting extends LinearOpMode {
                     }
                 }
             }
-        }
+            CameraDevice.getInstance().setFlashTorchMode(false);
+            tfod.deactivate();
 
 
-        if (opModeIsActive()) {
             if (!goldLocation.equals("idk")) {
 
-                double offset = runtime.seconds();
-                while (runtime.seconds() - offset < .2) {
+                runtime.reset();
+                while (runtime.seconds() < 3) {
                     if (goldLocation.equals("right")) {
-                        robot.leftDriveMotor.setPower(.5);
-                        robot.rightDriveMotor.setPower(-1);
+                        /*robot.leftDriveMotor.setPower(.5);
+                        robot.rightDriveMotor.setPower(-1);*/
+                        telemetry.addData("Doing", "Turning Right");
+                        telemetry.update();
                     } else if (goldLocation.equals("left")) {
-                        robot.leftDriveMotor.setPower(-.5);
-                        robot.rightDriveMotor.setPower(1);
+                        /*robot.leftDriveMotor.setPower(-.5);
+                        robot.rightDriveMotor.setPower(1);*/
+                        telemetry.addData("Doing", "Turning Left");
+                        telemetry.update();
                     }
                 }
 
 
-                offset = runtime.seconds();
-                while (runtime.seconds() - offset < 3) {
-                    robot.leftDriveMotor.setPower(.5); // this side is working
-                    robot.rightDriveMotor.setPower(1); // this side is broken so its set to full speed to match left side
+                runtime.reset();
+                while (runtime.seconds() < 3) {
+                    /*robot.leftDriveMotor.setPower(.5); // this side is working
+                    robot.rightDriveMotor.setPower(1); */ // this side is broken so its set to full speed to match left side
+                    telemetry.addData("Doing", "Going Forward");
+                    telemetry.update();
                 }
 
             }
+
         }
 
 

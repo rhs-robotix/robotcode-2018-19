@@ -8,7 +8,7 @@ import com.qualcomm.robotcore.util.Range;
 
 
 @TeleOp(name="Collection Testing", group="test")
-//@Disabled
+@Disabled
 public class CollectionTesting extends OpMode {
 
     // create robot object
@@ -37,8 +37,8 @@ public class CollectionTesting extends OpMode {
     public void loop() {
 
         double speed = gamepad1.left_stick_y;
-        robot.c_Servo1.setPower(speed);
-        robot.c_Servo2.setPower(-speed);
+        //robot.c_Servo1.setPower(speed);
+        //robot.c_Servo2.setPower(-speed);
 
 
     }
