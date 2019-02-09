@@ -27,6 +27,8 @@ public class DriverControlled extends OpMode {
         robot.dLeft.setPower(0);
         robot.dRight.setPower(0);
         robot.armMotor.setPower(0);
+        robot.armSpool.setPower(0);
+        robot.liftSpool.setPower(0);
 
     }
 
@@ -52,7 +54,11 @@ public class DriverControlled extends OpMode {
         robot.dBack.setPower(velocityX - velocityTurn);
         robot.dLeft.setPower(velocityY - velocityTurn);
         robot.dRight.setPower(-velocityY - velocityTurn);
-        robot.armMotor.setPower(gamepad2.left_stick_y);
+
+        if (gamepad2.right_bumper) {
+            robot.liftSpool.setPower(gamepad2.right_stick_y);
+        }
+
     }
 
     // code runs when driver hits STOP

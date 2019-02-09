@@ -14,6 +14,8 @@ public class Robot {
     public DcMotor dLeft = null;
     public DcMotor dRight = null;
     public DcMotor armMotor = null;
+    public DcMotor armSpool = null;
+    public DcMotor liftSpool = null;
 
     // map all servos and motors
     HardwareMap hwMap = null;
@@ -28,6 +30,9 @@ public class Robot {
         dLeft = getMotor("dLeft");
         dRight = getMotor("dRight");
         armMotor = getMotor("armMotor");
+        armSpool = getMotor("armSpool");
+        liftSpool = getMotor("liftSpool");
+
     }
 
 
