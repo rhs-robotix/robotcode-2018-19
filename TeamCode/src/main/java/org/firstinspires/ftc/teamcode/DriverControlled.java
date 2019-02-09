@@ -18,17 +18,11 @@ public class DriverControlled extends OpMode {
         // initialize robot
         robot.init(hardwareMap);
 
-        // tell driver robot is ready
+        // tell robot driver is ready
         telemetry.addData("Status", "Ready");
 
         // set all motors to 0
-        robot.dFront.setPower(0);
-        robot.dBack.setPower(0);
-        robot.dLeft.setPower(0);
-        robot.dRight.setPower(0);
-        robot.armMotor.setPower(0);
-        robot.armSpool.setPower(0);
-        robot.liftSpool.setPower(0);
+        robot.stopMotors();
 
     }
 
@@ -55,9 +49,24 @@ public class DriverControlled extends OpMode {
         robot.dLeft.setPower(velocityY - velocityTurn);
         robot.dRight.setPower(-velocityY - velocityTurn);
 
+        // lift spool motor
+        // use right bumper and right stick on gamepad2
         if (gamepad2.right_bumper) {
             robot.liftSpool.setPower(gamepad2.right_stick_y);
+        } else {
+            robot.liftSpool.setPower(0);
         }
+
+        // arm motors
+        // use right stick for spool, left stick for arm on gamepad2
+        if (!gamepad2.right_bumper) {
+            robot.armMotor.setPower(.2 * gamepad2.left_stick_y);
+            robot.armSpool.setPower(-gamepad2.right_stick_y);
+        } else {
+            robot.armMotor.setPower(0);
+            robot.armSpool.setPower(0);
+        }
+
 
     }
 
@@ -66,11 +75,7 @@ public class DriverControlled extends OpMode {
     public void stop() {
 
         // set all motors to 0
-        robot.dFront.setPower(0);
-        robot.dBack.setPower(0);
-        robot.dLeft.setPower(0);
-        robot.dRight.setPower(0);
-        robot.armMotor.setPower(0);
+        robot.stopMotors();
 
     }
 

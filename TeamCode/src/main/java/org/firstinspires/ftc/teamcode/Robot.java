@@ -17,6 +17,9 @@ public class Robot {
     public DcMotor armSpool = null;
     public DcMotor liftSpool = null;
 
+    public DcMotor[] driveMotors = {dFront, dBack, dLeft, dRight};
+    public DcMotor[] allMotors = {dFront, dBack, dLeft, dRight, armMotor, armSpool, liftSpool};
+
     // map all servos and motors
     HardwareMap hwMap = null;
     public void init(HardwareMap ahwMap) {
@@ -48,4 +51,14 @@ public class Robot {
     public DcMotor getMotor(String motorName) {
         return hwMap.get(DcMotor.class, motorName);
     }
+
+
+    // Sets the power of all motors to zero.
+    public void stopMotors() {
+        for (int i = 0; i < allMotors.length; i++) {
+            allMotors[i].setPower(0);
+        }
+    }
+
+
 }
